@@ -4,6 +4,6 @@
 
 @layer {
   .align-elements {
-    @apply max-w-5xl mx-auto px-5;
+    @apply mx-auto max-w-5xl px-5;
   }
 }

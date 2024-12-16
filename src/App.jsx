@@ -5,7 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home, Card, Product } from "./pages";
 // layouts
 import MainLayout from "./layouts/MainLayout";
-// css
+// loader
+import { loader as HomeLoader } from "./pages/Home";
 export const App = () => {
   const routes = createBrowserRouter([
     {
@@ -15,6 +16,7 @@ export const App = () => {
         {
           index: true,
           element: <Home />,
+          loader: HomeLoader,
         },
         {
           path: "/card",
