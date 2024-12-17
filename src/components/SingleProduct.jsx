@@ -1,7 +1,8 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 // react-router-dom
 import { Link } from "react-router-dom";
-
+import { addProducts, removeProducts } from "../features/productSlice";
 const SingleProduct = ({
   id,
   title,
@@ -10,9 +11,12 @@ const SingleProduct = ({
   price,
   rating,
   thumbnail,
+  value,
 }) => {
+  const dispatch = useDispatch();
   const handleAddItem = (e) => {
     e.preventDefault();
+    dispatch(addProducts({ ...value, amount: 1 }));
   };
   return (
     <Link
@@ -30,6 +34,7 @@ const SingleProduct = ({
       <div className="card-body">
         <h2 className="card-title">Shoes!</h2>
         <p>If a dog chews shoes whose shoes does he choose?</p>
+        <p>${price}</p>
         <div className="card-actions justify-end">
           <button onClick={handleAddItem} className="btn btn-primary">
             Buy Now

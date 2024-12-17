@@ -19,6 +19,7 @@ export const ProductsContainer = () => {
             price={price}
             rating={rating}
             thumbnail={thumbnail}
+            value={value}
           />
         );
       })}
