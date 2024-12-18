@@ -1,8 +1,16 @@
 import React from "react";
 // react icons
 import { FaTrashCan } from "react-icons/fa6";
+// redux
+import { useSelector, useDispatch } from "react-redux";
+import {
+  decrementAmount,
+  incrementAmount,
+  removeProducts,
+} from "../features/productSlice";
 export const CardItem = ({ prod }) => {
-  const { description, title, brand, thumbnail } = prod;
+  const dispatch = useDispatch();
+  const { description, title, brand, thumbnail, id, amount } = prod;
   return (
     <tr>
       <th>
@@ -19,20 +27,38 @@ export const CardItem = ({ prod }) => {
           </div>
           <div>
             <div className="font-bold">{title}</div>
-            <div className="text-sm opacity-50">Brnad: {brand}</div>
+            <div className="text-sm opacity-50">Brand: {brand}</div>
           </div>
         </div>
       </td>
       <td>{description}</td>
       <td>
         <div className="flex items-center gap-3">
-          <button className="btn btn-sm">+</button>
-          <span className="text-xl font-bold">2</span>
-          <button className="btn btn-sm">-</button>
+          <button
+            onClick={() => dispatch(incrementAmount(id))}
+            className="btn btn-sm"
+          >
+            &#43;
+          </button>
+          <span className="text-xl font-bold">{amount}</span>
+          <button
+            onClick={() => {
+              if (prod.amount == 1) {
+                dispatch(removeProducts(id));
+              }
+              dispatch(decrementAmount(id));
+            }}
+            className="btn btn-sm"
+          >
+            &#8722;
+          </button>
         </div>
       </td>
       <th>
-        <button className="btn btn-primary btn-xs">
+        <button
+          onClick={() => dispatch(removeProducts(id))}
+          className="btn btn-primary btn-xs"
+        >
           <FaTrashCan />
         </button>
       </th>

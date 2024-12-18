@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 // components
 import { CardItem } from "../components";
 export const Card = () => {
-  const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
   return (
     <div className="align-elements">
