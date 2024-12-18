@@ -2,7 +2,7 @@ import React from "react";
 // react icons
 import { FaTrashCan } from "react-icons/fa6";
 // redux
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   decrementAmount,
   incrementAmount,

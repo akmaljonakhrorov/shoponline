@@ -12,6 +12,7 @@ const SingleProduct = ({
   rating,
   thumbnail,
   value,
+  discountPercentage,
 }) => {
   const dispatch = useDispatch();
   const handleAddItem = (e) => {
@@ -23,7 +24,9 @@ const SingleProduct = ({
       to={`/product/${id}`}
       className="group card w-full bg-base-100 shadow-xl"
     >
-      {title}
+      <div className="mb-3 flex justify-center text-xl">
+        <h2>Brand: {brand || "brand is unknown"}</h2>
+      </div>
       <figure className="bg-black">
         <img
           src={thumbnail}
@@ -32,10 +35,12 @@ const SingleProduct = ({
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <p>${price}</p>
-        <div className="card-actions justify-end">
+        <h2 className="text-xl">{title}</h2>
+
+        <p className="font-bold">Discount: {discountPercentage}%</p>
+        <p>Price: ${price}</p>
+        <p>Raiting: {rating}</p>
+        <div className="card-actions justify-center">
           <button onClick={handleAddItem} className="btn btn-primary">
             Buy Now
           </button>

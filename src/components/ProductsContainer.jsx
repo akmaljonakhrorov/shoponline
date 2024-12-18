@@ -8,7 +8,16 @@ export const ProductsContainer = () => {
   return (
     <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
       {products.map((value) => {
-        const { id, title, brand, images, price, rating, thumbnail } = value;
+        const {
+          id,
+          title,
+          brand,
+          images,
+          price,
+          rating,
+          thumbnail,
+          discountPercentage,
+        } = value;
         return (
           <SingleProduct
             key={id}
@@ -20,6 +29,7 @@ export const ProductsContainer = () => {
             rating={rating}
             thumbnail={thumbnail}
             value={value}
+            discountPercentage={discountPercentage}
           />
         );
       })}

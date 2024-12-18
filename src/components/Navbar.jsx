@@ -2,6 +2,7 @@ import React from "react";
 // redux
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+// react icons
 export const Navbar = () => {
   const { allProducts, price } = useSelector((state) => state.products);
   return (
